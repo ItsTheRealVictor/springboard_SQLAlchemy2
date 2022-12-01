@@ -20,6 +20,24 @@ class Pet(db.Model):
     hunger = db.Column(db.Integer, nullable=False, default=True)
     
 
-# example_pet = Pet(id=2, name='example', species='farter', hunger=10)
-# db.session.add(example_pet)
-# db.session.commit()
+names = [
+    'first',
+    'second',
+    'third',
+    'fourth',
+    'fifth'
+]
+species = [
+    'llkjsdflkjsdf',
+    'bbbasdflkjksdfl',
+    'ooweitruwoeiruweor',
+    'hdhdsfkljshdkfjhs',
+    'ljsldkfjsdflkj'
+]
+
+together = [Pet(name=n, species=s) for n, s in zip(names, species)]
+# to insert all of these, in the terminal
+# >>> from app import db, app
+# >>> from models import Pet, together
+# >>> db.session.add_all(together)
+# >>> db.session.commit()
