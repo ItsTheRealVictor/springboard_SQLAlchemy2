@@ -10,7 +10,6 @@ app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 app.app_context().push()
-fart = 'cool'
 
 # class Pet(db.Model):
 #     __tablename__ = 'pets'

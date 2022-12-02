@@ -1,9 +1,17 @@
 from flask_sqlalchemy import SQLAlchemy
-from app import db
+from flask import Flask
 
 
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///example.db'
+app.config['SECRET_KEY'] = "farts"
+app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False 
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+app.app_context().push()
+db.create_all()
 # models go here
-
 class Pet(db.Model):
     __tablename__ = 'pets'
     
